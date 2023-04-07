@@ -1224,12 +1224,15 @@
     marker-clip: false;
   }
 
-  [feature = 'leisure_water_park'][zoom >= 17],
-  [feature = 'leisure_sports_centre'][sport = 'swimming'][zoom >= 17],
-  [feature = 'leisure_swimming_area'][zoom >= 17] {
-    marker-file: url('symbols/leisure/water_park.svg');
-    marker-fill: @leisure-green;
-    marker-clip: false;
+  [feature = 'leisure_water_park'],
+  [feature = 'leisure_sports_centre'][sport = 'swimming'],
+  [feature = 'leisure_swimming_area'] {
+    [zoom >= 14][way_pixels > 3000],
+    [zoom >= 17] {
+      marker-file: url('symbols/leisure/water_park.svg');
+      marker-fill: @leisure-green;
+      marker-clip: false;
+    }
   }
 
   [feature = 'leisure_fitness_centre'][zoom >= 17],
